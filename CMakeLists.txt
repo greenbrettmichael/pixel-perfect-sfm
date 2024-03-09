@@ -1,5 +1,4 @@
-# cmake version to be used
-cmake_minimum_required( VERSION 3.0 )
+cmake_minimum_required(VERSION 3.17...3.18)
 
 # project name
 project(PIXSFM)
@@ -27,6 +26,12 @@ endif()
 ################################################################################
 # Find packages
 ################################################################################
+
+if(NOT DEFINED ${CMAKE_CUDA_ARCHITECTURES})
+    set(CMAKE_CUDA_ARCHITECTURES 86 80 75)
+endif()
+message(STATUS "CUDA architectures set to ${CMAKE_CUDA_ARCHITECTURES}")
+
 # find_package(CUDA ${CUDA_MIN_VERSION} REQUIRED) #not-required
 find_package(Eigen3 3.3 REQUIRED)
 find_package(COLMAP REQUIRED)
