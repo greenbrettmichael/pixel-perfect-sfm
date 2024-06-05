@@ -12,7 +12,11 @@
 #include <limits>
 
 #include <fcntl.h>
+#ifdef _WIN32
+#include <io.h>
+#else
 #include <unistd.h>
+#endif
 
 #include <iostream>
 
