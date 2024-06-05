@@ -17,6 +17,8 @@ target_link_libraries(pixsfm
  ${PIXSFM_INTERNAL_LIBRARIES} ${PIXSFM_EXTERNAL_LIBRARIES})
 
 add_library(pypixsfm ${PYPIXSFM_SOURCES})
+# Add bigobj compile flag to ensure large object files can be linked.
+set_target_properties(pypixsfm PROPERTIES COMPILE_FLAGS "/bigobj")
 target_link_libraries(pypixsfm PRIVATE pixsfm)
 
 PIXSFM_ADD_PYMODULE(_pixsfm
