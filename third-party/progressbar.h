@@ -134,8 +134,8 @@ progressbar::progressbar() :
     skip_char("░"),
     opening_bracket_char("["),
     closing_bracket_char("]"),
-    init_timepoint(std::chrono::system_clock::now()),
-    last_timepoint(std::chrono::system_clock::now()) {
+    init_timepoint(std::chrono::high_resolution_clock::now()),
+    last_timepoint(std::chrono::high_resolution_clock::now()) {
         update();
     }
 
@@ -151,8 +151,8 @@ progressbar::progressbar(size_t n, bool showbar, bool init_update) :
     skip_char("░"),
     opening_bracket_char("["),
     closing_bracket_char("]"),
-    init_timepoint(std::chrono::system_clock::now()),
-    last_timepoint(std::chrono::system_clock::now()) {
+    init_timepoint(std::chrono::high_resolution_clock::now()),
+    last_timepoint(std::chrono::high_resolution_clock::now()) {
         if (init_update) {
             update();
         }
