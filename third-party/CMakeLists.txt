@@ -11,4 +11,5 @@ set(HIGHFIVE_USE_HALF_FLOAT ON)
 set(HIGHFIVE_BUILD_DOCS OFF)
 set(HIGHFIVE_EXAMPLES OFF)
 
+add_subdirectory(HighFive)
 add_subdirectory(pybind11)
