@@ -36,8 +36,6 @@ message(STATUS "CUDA architectures set to ${CMAKE_CUDA_ARCHITECTURES}")
 # find_package(CUDA ${CUDA_MIN_VERSION} REQUIRED) #not-required
 find_package(Eigen3 3.3 REQUIRED)
 find_package(COLMAP REQUIRED)
-find_package(hdf5 CONFIG REQUIRED)
-find_package(HighFive CONFIG REQUIRED)
 
 ################################################################################
 # Select correct C/C++ standard
@@ -109,8 +107,8 @@ set(PIXSFM_LINK_DIRS
 set(PIXSFM_EXTERNAL_LIBRARIES
   ${CERES_LIBRARIES}
   ${FREEIMAGE_LIBRARIES}
-  colmap::colmap
-  hdf5::hdf5-shared hdf5::hdf5_hl-shared
+  ${COLMAP_LIBRARIES}
+  ${HDF5_C_LIBRARIES}
 )
 
 set(PIXSFM_INTERNAL_LIBRARIES
