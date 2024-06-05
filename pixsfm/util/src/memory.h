@@ -1,5 +1,7 @@
 #pragma once
+#if IS_LINUX
 #include "sys/sysinfo.h"
+#endif
 #include "sys/types.h"
 
 #include <ceres/ceres.h>
