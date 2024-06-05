@@ -196,13 +196,13 @@ size_t FeatureMap<dtype>::InitFromH5GroupChunked(
   if (!missing_p2D_ids.empty()) {
     HighFive::DataSet scale_dataset = group.getDataSet("scales");
     std::vector<double> scales(scale_dataset.getElementCount());
-    scale_dataset.read(scales.data());
+    scale_dataset.read_raw(scales.data());
 
     THROW_CHECK_EQ(stored_keypoint_ids.size(), scales.size() / 2);
 
     HighFive::DataSet corner_dataset = group.getDataSet("corners");
     std::vector<int> corners(corner_dataset.getElementCount());
-    corner_dataset.read(corners.data());
+    corner_dataset.read_raw(corners.data());
 
     THROW_CHECK_EQ(corners.size(), scales.size());
     for (const colmap::point2D_t& point2D_idx : missing_p2D_ids) {

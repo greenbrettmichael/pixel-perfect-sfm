@@ -206,13 +206,13 @@ size_t FeaturePatch<dtype>::LoadFromH5Dataset(HighFive::DataSet& dataset,
   }
 
   // SAFETY OVERRIDE
-  dataset.getAttribute("corner").read(corner_.data());
-  dataset.getAttribute("scale").read(scale_.data());
+  dataset.getAttribute("corner").read_raw(corner_.data());
+  dataset.getAttribute("scale").read_raw(scale_.data());
 
   // Load Data
   if (fill) {
     data_.resize(Height() * Width() * Channels());
-    dataset.read(data_.data());
+    dataset.read_raw(data_.data());
 
     data_ptr_ = data_.data();  // Make Real Patch
     status_.reference_count =
@@ -254,7 +254,7 @@ size_t FeaturePatch<dtype>::LoadDataFromH5Chunk(HighFive::Selection& chunk,
   // Load Data
   if (fill) {
     data_.resize(Height() * Width() * Channels());
-    chunk.read(data_.data());
+    chunk.read_raw(data_.data());
     data_ptr_ = data_.data();  // Make Real Patch
     status_.reference_count =
         1;  // Note that this patch is referenced by loading.
